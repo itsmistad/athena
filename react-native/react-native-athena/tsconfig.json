@@ -1,0 +1,19 @@
+{
+    "extends": "../../tsconfig",
+    "compilerOptions": {
+        "allowJs": true,
+        "outDir": "dist",
+        "declaration": true,
+        "composite": true,
+        "rootDir": "src"
+    },
+    "include": ["src/**/*.tsx", "src/**/*.ts", "src/index.ts"],
+    "exclude": [
+        "dist",
+        "node_modules",
+        "prettierrc.js",
+        "eslintrc.js",
+        "babel.config.js",
+        "jest.config.js",
+    ]
+}

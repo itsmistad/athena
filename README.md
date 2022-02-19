@@ -1,2 +1,2 @@
-# athena
+# Athena
 An omnifarious UI library.
