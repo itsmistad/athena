@@ -1,0 +1,24 @@
+{
+  "extends": "../../../tsconfig",
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+    "jsx": "react",
+    "sourceMap": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.tsx", "src/**/*.ts", "src/index.ts"],
+  "exclude": [
+      "dist",
+      "node_modules",
+      "prettierrc.js",
+      "eslintrc.js",
+      "jest.config.js",
+      "tsconfig.tsbuildinfo",
+  ]
+}

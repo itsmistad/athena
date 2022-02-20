@@ -1,13 +1,11 @@
 {
-    "extends": "../../tsconfig",
+    "extends": "../../../tsconfig",
     "compilerOptions": {
-        "allowJs": true,
+        "jsx": "react-native",
         "outDir": "dist",
-        "declaration": true,
-        "composite": true,
-        "rootDir": "src"
+        "rootDir": ".",
     },
-    "include": ["src/**/*.tsx", "src/**/*.ts", "src/index.ts"],
+    "include": ["src/**/*.tsx", "src/**/*.ts", "src/index.ts", "index.ts"],
     "exclude": [
         "dist",
         "node_modules",
@@ -15,5 +13,6 @@
         "eslintrc.js",
         "babel.config.js",
         "jest.config.js",
+        "tsconfig.tsbuildinfo",
     ]
 }
