@@ -1,0 +1,44 @@
+{
+    "name": "@athena-ui/react",
+    "version": "0.0.1",
+    "description": "Athena for React",
+    "author": {
+        "name": "DJ Williamson",
+        "email": "d@mistad.net",
+        "url": "https://github.com/itsmistad"
+    },
+    "scripts": {
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/itsmistad/athena.git",
+        "baseUrl": "https://github.com/itsmistad/athena"
+    },
+    "license": "MIT",
+    "licenseFilename": "LICENSE",
+    "readmeFilename": "README.md",
+    "bugs": {
+        "url": "https://github.com/itsmistad/athena/issues"
+    },
+    "homepage": "https://github.com/itsmistad/athena",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "files": [
+        "lib"
+    ],
+    "engines": {
+        "node": ">=16"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "@athena-ui/base": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.39",
+        "@types/react-dom": "^17.0.11",
+        "eslint-plugin-react": "^7.28.0",
+        "eslint-plugin-react-hooks": "^4.3.0"
+    }
+}

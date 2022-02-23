@@ -1,0 +1,36 @@
+{
+    "name": "@athena-ui/base",
+    "version": "0.0.1",
+    "description": "Base for Athena",
+    "author": {
+        "name": "DJ Williamson",
+        "email": "d@mistad.net",
+        "url": "https://github.com/itsmistad"
+    },
+    "scripts": {
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/itsmistad/athena.git",
+        "baseUrl": "https://github.com/itsmistad/athena"
+    },
+    "license": "MIT",
+    "licenseFilename": "LICENSE",
+    "readmeFilename": "README.md",
+    "bugs": {
+        "url": "https://github.com/itsmistad/athena/issues"
+    },
+    "homepage": "https://github.com/itsmistad/athena",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "files": [
+        "lib"
+    ],
+    "dependencies": {
+        "webfontloader": "^1.6.28"
+    },
+    "devDependencies": {
+        "@types/webfontloader": "^1.6.34"
+    }
+}

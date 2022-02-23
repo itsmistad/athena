@@ -1,0 +1,30 @@
+{
+    "name": "athena-ui",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/itsmistad/athena.git",
+        "baseUrl": "https://github.com/itsmistad/athena"
+    },
+    "scripts": {
+        "build": "tsc --build . --force"
+    },
+    "author": {
+        "name": "DJ Williamson",
+        "email": "d@mistad.net",
+        "url": "https://github.com/itsmistad"
+    },
+    "license": "MIT",
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.12.0",
+        "@typescript-eslint/parser": "^5.12.0",
+        "eslint": "^8.9.0",
+        "eslint-config-prettier": "^8.4.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "prettier": "^2.5.1",
+        "typescript": "^4.5.5"
+    }
+}

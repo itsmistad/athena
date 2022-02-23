@@ -1,0 +1,42 @@
+{
+    "name": "@athena-ui/react-native",
+    "version": "0.0.1",
+    "description": "Athena for React Native",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/itsmistad/athena.git",
+        "baseUrl": "https://github.com/itsmistad/athena"
+    },
+    "scripts": {
+        "build": "tsc"
+    },
+    "keywords": [
+        "react-native"
+    ],
+    "author": {
+        "name": "DJ Williamson",
+        "email": "d@mistad.net",
+        "url": "https://github.com/itsmistad"
+    },
+    "license": "MIT",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "files": [
+        "README.md",
+        "android",
+        "index.js",
+        "ios",
+        "athena.podspec",
+        "lib"
+    ],
+    "devDependencies": {
+        "@types/react": "^17.0.39",
+        "@types/react-native": "^0.66.16"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2",
+        "react-native": "^0.67.3",
+        "@athena-ui/base": "^0.0.1",
+        "@athena-ui/react": "^0.0.1"
+    }
+}

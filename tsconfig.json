@@ -1,32 +1,11 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
-        "composite": true,
-        "declaration": true,
-        "allowUnreachableCode": false,
-        "allowUnusedLabels": false,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "lib": ["esnext", "dom"],
-        "module": "esnext",
-        "moduleResolution": "node",
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitReturns": true,
-        "noImplicitUseStrict": false,
-        "noStrictGenericChecks": false,
-        "resolveJsonModule": true,
-        "skipLibCheck": true,
-        "target": "esnext",
-        "allowJs": true,
+        "composite": true
     },
-    "exclude": [
-        "**/dist",
-        "**/node_modules",
-        "**/prettierrc.js",
-        "**/eslintrc.js",
-        "**/babel.config.js",
-        "**/eslint.config.js",
-        "**/jest.config.js",
-        "**/tsconfig.tsbuildinfo",
+    "files": [],
+    "references": [
+        { "path": "./packages/base" },
+        { "path": "./packages/react" },
+        { "path": "./packages/react-native" }
     ]
 }
