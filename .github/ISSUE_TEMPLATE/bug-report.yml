@@ -1,0 +1,35 @@
+name: Report a bug
+description: Let us know if something is broken or inconsistent!
+labels:
+  - 'bug'
+body:
+  - type: checkboxes
+    id: package
+    attributes:
+      label: Apps & Packages
+      description: Which apps and/or packages have this bug?
+      options:
+        - label: '@athena-ui/base'
+        - label: '@athena-ui/cli'
+        - label: '@athena-ui/react'
+        - label: '@athena-ui/react-native'
+        - label: '@athena-ui/svelte'
+        - label: '@athena-ui/vanilla'
+        - label: '@athena-ui/vue'
+        - label: 'web'
+  - type: dropdown
+    id: version
+    attributes:
+      label: Which version of Athena are you using?
+      options:
+        - v0.0.x
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+    validations:
+      required: true
+  - type: textarea
+    id: possible-fix
+    attributes:
+      label: Possible fix

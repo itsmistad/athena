@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { AthenaContext, getInitialState } from '..';
 import { AthenaDispatcherActionKey, AthenaState } from '../types';
-import { DeepPartial, overrideWithDeepPartial } from '@athena-ui/base';
+import { overrideWithPartialDeep } from '@athena-ui/base';
+import { PartialDeep } from 'type-fest';
 
 export const useConfigureAthena = ({
     styles,
@@ -10,7 +11,7 @@ export const useConfigureAthena = ({
     /**
         A deep-partial of styles for Athena's components.
     */
-    styles: DeepPartial<AthenaState['styles']>;
+    styles: PartialDeep<AthenaState['styles']>;
     /**
         If true, Athena will update its state with the original configuration overriden by values defined in `styles`.
         
@@ -23,14 +24,8 @@ export const useConfigureAthena = ({
         type: AthenaDispatcherActionKey.SET_STATE,
         payload: {
             styles: startWithDefaults
-                ? overrideWithDeepPartial<AthenaState['styles']>(
-                      getInitialState().styles,
-                      styles,
-                  )
-                : overrideWithDeepPartial<AthenaState['styles']>(
-                      state.styles,
-                      styles,
-                  ),
+                ? overrideWithPartialDeep<AthenaState['styles']>(getInitialState().styles, styles)
+                : overrideWithPartialDeep<AthenaState['styles']>(state.styles, styles),
         },
     });
 };

@@ -1,0 +1,125 @@
+name: CD
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out the affected branch...
+        uses: actions/checkout@v2
+      - name: Setting the GitHub Action user in git configuration...
+        uses: fregante/setup-git-user@v1
+      - name: Checking packages to see what changed...
+        uses: dorny/paths-filter@v2.10.2
+        id: changes
+        with:
+          filters: |
+            angular:
+              - 'packages/angular/**'
+            base:
+              - 'packages/base/**'
+            cli:
+              - 'packages/cli/**'
+            react:
+              - 'packages/react/**'
+            react-native:
+              - 'packages/react-native/**'
+            svelte:
+              - 'packages/svelte/**'
+            vanilla:
+              - 'packages/vanilla/**'
+            vue:
+              - 'packages/vue/**'
+            web:
+              - 'apps/web/**'
+      - name: Setting up Node.js LTS v16...
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Restoring modules for athena...
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: modules-${{ hashFiles('yarn.lock') }}
+      - name: Restoring modules for @athena-ui/angular...
+        if: steps.changes.outputs.angular == 'true'
+        id: cache-angular-package
+        uses: actions/cache@v2
+        with:
+          path: packages/angular/node_modules
+          key: modules-${{ hashFiles('packages/angular/yarn.lock') }}
+      - name: Restoring modules for @athena-ui/base...
+        if: steps.changes.outputs.base == 'true'
+        id: cache-base-package
+        uses: actions/cache@v2
+        with:
+          path: packages/base/node_modules
+          key: modules-${{ hashFiles('packages/base/yarn.lock') }}
+      - name: Restoring modules for @athena-ui/cli...
+        if: steps.changes.outputs.cli == 'true'
+        id: cache-cli-package
+        uses: actions/cache@v2
+        with:
+          path: packages/cli/node_modules
+          key: modules-${{ hashFiles('packages/cli/yarn.lock') }}
+      - name: Restoring modules for @athena-ui/react...
+        if: steps.changes.outputs.react == 'true'
+        id: cache-react-package
+        uses: actions/cache@v2
+        with:
+          path: packages/react/node_modules
+          key: modules-${{ hashFiles('packages/react/yarn.lock') }}
+      - name: Restoring modules for @athena-ui/react-native...
+        if: steps.changes.outputs.react-native == 'true'
+        id: cache-react-native-package
+        uses: actions/cache@v2
+        with:
+          path: packages/react-native/node_modules
+          key: modules-${{ hashFiles('packages/react-native/yarn.lock') }}
+      - name: Restoring modules for @athena-ui/svelte...
+        if: steps.changes.outputs.svelte == 'true'
+        id: cache-svelte-package
+        uses: actions/cache@v2
+        with:
+          path: packages/svelte/node_modules
+          key: modules-${{ hashFiles('packages/svelte/yarn.lock') }}
+      - name: Restoring modules for @athena-ui/vanilla...
+        if: steps.changes.outputs.vanilla == 'true'
+        id: cache-vanilla-package
+        uses: actions/cache@v2
+        with:
+          path: packages/vanilla/node_modules
+          key: modules-${{ hashFiles('packages/vanilla/yarn.lock') }}
+      - name: Restoring modules for @athena-ui/vue...
+        if: steps.changes.outputs.vue == 'true'
+        id: cache-vue-package
+        uses: actions/cache@v2
+        with:
+          path: packages/vue/node_modules
+          key: modules-${{ hashFiles('packages/vue/yarn.lock') }}
+      - name: Restoring modules for apps/web...
+        if: steps.changes.outputs.web == 'true'
+        id: cache-web-app
+        uses: actions/cache@v2
+        with:
+          path: apps/web/node_modules
+          key: modules-${{ hashFiles('apps/web/yarn.lock') }}
+      - name: Installing dependencies...
+        if: steps.cache-web-app.outputs.cache-hit != 'true' || steps.cache-angular-package.outputs.cache-hit != 'true' || steps.cache-base-package.outputs.cache-hit != 'true' || steps.cache-cli-package.outputs.cache-hit != 'true' || steps.cache-react-package.outputs.cache-hit != 'true' || steps.cache-react-native-package.outputs.cache-hit != 'true' || steps.cache-svelte-package.outputs.cache-hit != 'true' || steps.cache-vanilla-package.outputs.cache-hit != 'true' || steps.cache-vue-package.outputs.cache-hit != 'true' 
+        run: yarn
+      - name: Publishing the affected packages...
+        run: |
+          cd scripts/bash
+          chmod +x ./publish.sh
+          if [[ ${{ steps.changes.outputs.angular }} == 'true' ]] || [[ ${{ steps.changes.outputs.base }} == 'true' ]] || [[ ${{ steps.changes.outputs.cli }} == 'true' ]] || [[ ${{ steps.changes.outputs.react }} == 'true' ]] || [[ ${{ steps.changes.outputs.react-native }} == 'true' ]] || [[ ${{ steps.changes.outputs.svelte }} == 'true' ]] || [[ ${{ steps.changes.outputs.vanilla }} == 'true' ]] || [[ ${{ steps.changes.outputs.vue }} == 'true' ]]
+          then
+            ./publish.sh packages
+          fi
+          if [[ ${{ steps.changes.outputs.web }} == 'true' ]]
+          then
+            ./publish.sh web
+          fi

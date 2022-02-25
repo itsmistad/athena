@@ -5,10 +5,7 @@ export const loadWebFonts = (families: Array<FontFamily>) => {
     WebFont.load({
         google: {
             families: families.reduce(
-                (accumulator, family) => [
-                    ...accumulator,
-                    `${family.name}:${family.weights.join(',')}`,
-                ],
+                (accumulator, family) => [...accumulator, `${family.name}:${family.weights.join(',')}`],
                 [] as string[],
             ),
         },

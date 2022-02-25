@@ -14,6 +14,7 @@ export const getInitialState = (): AthenaState =>
         {} as AthenaState,
     );
 
-export const AthenaContext = React.createContext<
-    [AthenaState, React.Dispatch<AthenaDispatcherAction>]
->([getInitialState(), () => {}]);
+export const AthenaContext = React.createContext<[AthenaState, React.Dispatch<AthenaDispatcherAction>]>([
+    getInitialState(),
+    () => {},
+]);
