@@ -8,7 +8,7 @@
         "url": "https://github.com/itsmistad"
     },
     "scripts": {
-        "build": "tsc"
+        "build": "rm -rf ./lib/ && tsc --build . --force"
     },
     "repository": {
         "type": "git",
@@ -16,8 +16,6 @@
         "baseUrl": "https://github.com/itsmistad/athena"
     },
     "license": "MIT",
-    "licenseFilename": "LICENSE",
-    "readmeFilename": "README.md",
     "bugs": {
         "url": "https://github.com/itsmistad/athena/issues"
     },
@@ -25,12 +23,15 @@
     "main": "lib/index.js",
     "module": "lib/index.js",
     "files": [
-        "lib"
+        "lib",
+        "assets"
     ],
     "dependencies": {
-        "webfontloader": "^1.6.28"
+        "@fontsource/lato": "^4.5.3",
+        "@fontsource/montserrat": "^4.5.5"
     },
     "devDependencies": {
-        "@types/webfontloader": "^1.6.34"
+        "@types/webfontloader": "^1.6.34",
+        "type-fest": "^2.12.0"
     }
 }

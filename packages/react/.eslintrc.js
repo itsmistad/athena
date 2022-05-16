@@ -3,6 +3,7 @@ module.exports = {
     plugins: ['react', 'react-hooks'],
     rules: {
         'react-hooks/rules-of-hooks': 'error',
+        'react/no-children-prop': 'off',
         'react-hooks/exhaustive-deps': 'warn',
     },
 };

@@ -22,8 +22,7 @@
         "noImplicitThis": true,
         "noImplicitAny": true,
         "suppressImplicitAnyIndexErrors": true,
-        "allowSyntheticDefaultImports": true,
-        "typeRoots": ["node_modules/@types"]
+        "allowSyntheticDefaultImports": true
     },
     "exclude": [
         "**/lib/**",

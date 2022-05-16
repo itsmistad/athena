@@ -8,7 +8,8 @@
         "baseUrl": "https://github.com/itsmistad/athena"
     },
     "scripts": {
-        "build": "tsc"
+        "build": "rm -rf ./lib/ && tsc --build . --force",
+        "watch": "yarn build --watch"
     },
     "keywords": [
         "react-native"
@@ -22,21 +23,22 @@
     "main": "lib/index.js",
     "module": "lib/index.js",
     "files": [
-        "README.md",
         "android",
         "index.js",
         "ios",
         "athena.podspec",
         "lib"
     ],
+    "dependencies": {
+        "@athena-ui/base": "^0.0.1",
+        "@athena-ui/react": "^0.0.1"
+    },
     "devDependencies": {
         "@types/react": "^17.0.39",
         "@types/react-native": "^0.66.16"
     },
     "peerDependencies": {
         "react": "^17.0.2",
-        "react-native": "^0.67.3",
-        "@athena-ui/base": "^0.0.1",
-        "@athena-ui/react": "^0.0.1"
+        "react-native": "^0.67.3"
     }
 }

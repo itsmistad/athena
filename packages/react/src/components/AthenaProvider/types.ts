@@ -1,7 +1,10 @@
-import { AthenaComponentStyle } from '@athena-ui/base';
+import { AthenaComponents, AthenaComponentStyles, AthenaTheme } from '@athena-ui/base';
 
 export type AthenaState = {
-    styles: typeof AthenaComponentStyle;
+    styles: {
+        [key in AthenaTheme]: typeof AthenaComponentStyles;
+    };
+    theme: AthenaTheme;
 };
 
 export enum AthenaDispatcherActionKey {

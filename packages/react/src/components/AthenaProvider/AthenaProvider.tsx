@@ -1,6 +1,8 @@
 import React, { useReducer } from 'react';
 import { AthenaContext, getInitialState } from '.';
 import { AthenaDispatcherAction, AthenaDispatcherActionKey, AthenaState } from './types';
+import '@fontsource/lato';
+import '@fontsource/montserrat';
 
 const reducer = (state: AthenaState, action: AthenaDispatcherAction): AthenaState => {
     switch (action.type) {

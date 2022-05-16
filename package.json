@@ -7,7 +7,7 @@
         "baseUrl": "https://github.com/itsmistad/athena"
     },
     "scripts": {
-        "build": "tsc --build . --force",
+        "build": "tsc --build . --force && cd packages/svelte && yarn build && cd ..",
         "lint": "prettier --write .",
         "test": "jest"
     },
@@ -18,8 +18,8 @@
     },
     "license": "MIT",
     "workspaces": [
-        "packages/*",
-        "apps/*"
+        "packages/**/*",
+        "apps/**/*"
     ],
     "devDependencies": {
         "@types/jest": "^27.4.1",

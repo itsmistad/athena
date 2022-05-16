@@ -1,6 +1,6 @@
 import { AthenaComponents, AthenaComponentStyles, AthenaThemes } from '@athena-ui/base';
-import React from 'react';
-import { AthenaState, AthenaDispatcherAction } from './types';
+import type { AthenaState, AthenaStore, WritableStyles } from './types';
+import { writable } from 'svelte/store';
 
 export const getInitialState = (): AthenaState =>
     Object.keys(AthenaThemes).reduce(
@@ -16,7 +16,14 @@ export const getInitialState = (): AthenaState =>
         {} as AthenaState,
     );
 
-export const AthenaContext = React.createContext<[AthenaState, React.Dispatch<AthenaDispatcherAction>]>([
-    getInitialState(),
-    () => {},
-]);
+export const currentState = getInitialState();
+
+export const store: AthenaStore = {
+    styles: Object.keys(AthenaComponents).reduce(
+        (components, component) => ({
+            ...components,
+            [component]: writable(AthenaComponentStyles[component]),
+        }),
+        {} as WritableStyles,
+    ),
+};

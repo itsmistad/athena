@@ -1,0 +1,54 @@
+{
+    "name": "@athena-ui/svelte",
+    "version": "0.0.1",
+    "description": "Base for Athena",
+    "author": {
+        "name": "DJ Williamson",
+        "email": "d@mistad.net",
+        "url": "https://github.com/itsmistad"
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "watch": "rollup -c -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/itsmistad/athena.git",
+        "baseUrl": "https://github.com/itsmistad/athena"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/itsmistad/athena/issues"
+    },
+    "homepage": "https://github.com/itsmistad/athena",
+    "main": "lib/index.js",
+    "module": "lib/index.mjs",
+    "svelte": "src/index.ts",
+    "files": [
+        "lib"
+    ],
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^21.0.2",
+        "@rollup/plugin-node-resolve": "^13.1.3",
+        "@rollup/plugin-typescript": "^8.3.1",
+        "@tsconfig/svelte": "^3.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.10.1",
+        "@typescript-eslint/parser": "^5.10.1",
+        "csstype": "^3.0.10",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-svelte3": "^3.2.1",
+        "prettier": "^2.5.1",
+        "prettier-plugin-svelte": "^2.5.0",
+        "rollup": "^2.68.0",
+        "rollup-plugin-import-css": "^3.0.3",
+        "rollup-plugin-svelte": "^7.1.0",
+        "svelte-preprocess": "^4.10.1",
+        "tslib": "^2.3.1",
+        "typescript": "~4.5.4"
+    },
+    "dependencies": {
+        "@athena-ui/base": "^0.0.1",
+        "svelte": "^3.44.0"
+    }
+}

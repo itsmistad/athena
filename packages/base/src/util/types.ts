@@ -1,4 +1,6 @@
+import { FontFamilies } from '../@types';
+
 export type FontFamily = {
-    name: string;
+    name: FontFamilies;
     weights: Array<number>;
 };

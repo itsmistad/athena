@@ -1,0 +1,22 @@
+{
+    "extends": "../../tsconfig.common.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "rootDir": "src",
+        "outDir": "lib",
+        "target": "es2017",
+        "checkJs": true,
+        "importsNotUsedAsValues": "error",
+        "preserveValueImports": true,
+        "isolatedModules": true,
+        "sourceMap": true,
+        "strict": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "types": ["svelte", "node"],
+        "composite": false
+    },
+    "include": ["src/**/*.ts", "src/**/*.svelte"]
+}

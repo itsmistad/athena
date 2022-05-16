@@ -5,6 +5,6 @@
         "outDir": "lib",
         "composite": true
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "include": ["src/**/*.ts"],
     "extends": "../../tsconfig.common.json"
 }

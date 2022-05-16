@@ -1,22 +1,42 @@
+import { AthenaComponents } from '@athena-ui/base';
+import { useAthena, copyDefinedFields } from '@athena-ui/react';
 import React from 'react';
-import { Text as BaseText, TextProps, StyleSheet } from 'react-native';
-import { useAthenaComponent } from '@athena-ui/react';
-import { AthenaComponent } from '@athena-ui/base';
+import { Text as NativeText, TextProps, StyleSheet } from 'react-native';
 
-export const Text: React.FC<{
-    style?: TextProps['style'];
-}> = ({ children, style }) => {
-    const flattenedStyle = StyleSheet.flatten(style);
-    const component = useAthenaComponent(AthenaComponent.Text);
+export const Text = ({ children, ...rest }: TextProps) => {
+    const { getStyles } = useAthena();
+    const {
+        color,
+        fontSize,
+        fontFamily,
+        marginTop,
+        marginRight,
+        marginBottom,
+        marginLeft,
+        paddingTop,
+        paddingRight,
+        paddingBottom,
+        paddingLeft,
+    } = getStyles(AthenaComponents.Text);
     return (
-        <BaseText
+        <NativeText
+            {...rest}
             style={{
-                color: flattenedStyle?.color || component.color,
-                fontSize: flattenedStyle?.fontSize || component.fontSize,
-                fontFamily: flattenedStyle?.fontFamily || component.fontFamily,
+                color,
+                fontSize,
+                fontFamily,
+                marginTop,
+                marginRight,
+                marginBottom,
+                marginLeft,
+                paddingTop,
+                paddingRight,
+                paddingBottom,
+                paddingLeft,
+                ...copyDefinedFields(StyleSheet.flatten(rest.style)),
             }}
         >
             {children}
-        </BaseText>
+        </NativeText>
     );
 };

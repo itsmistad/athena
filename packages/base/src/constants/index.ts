@@ -1,9 +1,6 @@
-import { TextStyles } from '..';
+import { DefaultTextStyles } from '../components';
+import { AthenaComponents } from '../@types';
 
-export enum AthenaComponent {
-    Text = 'Text',
-}
-
-export const AthenaComponentStyle = {
-    [AthenaComponent.Text]: TextStyles,
+export const AthenaComponentStyles = {
+    [AthenaComponents.Text]: DefaultTextStyles,
 };
